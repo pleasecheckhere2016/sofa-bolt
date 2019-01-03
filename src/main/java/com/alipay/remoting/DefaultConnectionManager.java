@@ -373,7 +373,7 @@ public class DefaultConnectionManager implements ConnectionManager, ConnectionHe
 
     /**
      * Warning! This is weakly consistent implementation, to prevent lock the whole {@link ConcurrentHashMap}.
-     *
+     *@since 1.7+
      * @see ConnectionManager#removeAll()
      */
     @Override

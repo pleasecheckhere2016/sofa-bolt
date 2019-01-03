@@ -63,7 +63,7 @@ public class BasicUsageDemoByJunit {
     String                    ip                        = "127.0.0.1";
     String                    addr                      = "127.0.0.1:" + port;
 
-    int                       invokeTimes               = 5;
+    int                       invokeTimes               = 1;
 
     SimpleServerUserProcessor serverUserProcessor       = new SimpleServerUserProcessor();
     SimpleClientUserProcessor clientUserProcessor       = new SimpleClientUserProcessor();
@@ -76,13 +76,13 @@ public class BasicUsageDemoByJunit {
     public void init() {
         server = new BoltServer(port, true);
         server.start();
-        server.addConnectionEventProcessor(ConnectionEventType.CONNECT, serverConnectProcessor);
-        server.addConnectionEventProcessor(ConnectionEventType.CLOSE, serverDisConnectProcessor);
+//        server.addConnectionEventProcessor(ConnectionEventType.CONNECT, serverConnectProcessor);
+//        server.addConnectionEventProcessor(ConnectionEventType.CLOSE, serverDisConnectProcessor);
         server.registerUserProcessor(serverUserProcessor);
 
         client = new RpcClient();
-        client.addConnectionEventProcessor(ConnectionEventType.CONNECT, clientConnectProcessor);
-        client.addConnectionEventProcessor(ConnectionEventType.CLOSE, clientDisConnectProcessor);
+//        client.addConnectionEventProcessor(ConnectionEventType.CONNECT, clientConnectProcessor);
+//        client.addConnectionEventProcessor(ConnectionEventType.CLOSE, clientDisConnectProcessor);
         client.registerUserProcessor(clientUserProcessor);
         client.init();
     }
